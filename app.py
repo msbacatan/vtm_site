@@ -3,6 +3,47 @@ from flask import render_template
 
 app = Flask(__name__)
 
+class Tank:
+   def __init__(self, tankRadius, tankHeight):
+   self.tankRadius = tankRadius
+   self.tankHeight = tankHeight
+   self.piCalc = 3.14
+   self.materialCost = 25
+   self.laborCost = 15
+   self.topArea = piCalc * (tankRadius)**2
+   self.sideArea = (piCalc * (tankRadius * tankHeight))
+   self.totalArea = 0
+   self.totalMaterialCost = 0
+   self.totalLaborCost = 0
+   self.totalCost = 0
+
+    def totalArea(self):
+        return self.totalArea
+
+    def calcTotalArea(self):
+        self.totalArea = (self.topArea + self.sideArea)/144 #convert from sq in to sq ft
+
+    def totalMaterialCost(self):
+        return self.totalMaterialCost
+
+    def calcMaterialCost(self):
+        self.totalMaterialCost = (self.totalArea * self.materialCost)
+
+    def totalLaborCost(self):
+        return self.totalLaborCost
+
+    def calcLaborCost(self):
+        self.totalLaborCost = (self.totalArea * self.laborCost)
+
+    def calculateTotalCost(self):
+        self.calcLaborCost()
+        self.calcMaterialCost()
+        self.totalCost = self.calcLaborCost() + self.calcMaterialCost()
+
+    def getTotalEstimate(self):
+        return self.totalCost
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -23,26 +64,12 @@ def totalEstimate():
         radius = float(form['tankRadius'])
         height = float(form['tankHeight']) 
 
-        print(radius)
-        print(height)
+        tank = Tank(tankRadius, tankHeight)
 
-        PI = 3.14
-        MATERIALCOST = 25
-        LABORCOST = 15
-        
-        topArea = PI * radius**2
-        sideArea = (2 * (PI * (radius * height)))
-        totalAreaSqFt = (topArea + sideArea)/144 #convert from square inches to square feet
-        # print(topArea)
-        # print(sideArea)
-        # print(totalAreaSqFt)
-        
-        totalMaterialCost = totalAreaSqFt * MATERIALCOST
-        totalLaborCost = totalAreaSqFt * LABORCOST
-        # print(totalMaterialCost)
-        # print(totalLaborCost)
+        tank.calculateTotalCost()
 
-        totalCost = totalMaterialCost + totalLaborCost
+        totalCost = tank.getTotalEstimate
+        totalCost = ("The estimated total cost for this tank is ${0:,.2f}").format(totalCost)
 
         print(totalCost)
 
