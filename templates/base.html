@@ -7,15 +7,28 @@
     <link rel="stylesheet" typek="text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}">
 </head>
 <body>
-    <div>
-        <h1>Welcome to Software Design</h1>
-        <hr>
-        <br>
+    <div id="container">
+        <div class="header">
+            <h1>Vertical Tank Maintenance</h1>
+            <hr>
+            <div class="menu">
+                <a class="homenav" href="./index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="estimate.html">Estimator</a>
+            </div>
+            <hr>
+        </div>
 
+        <main>
         {% block body %}
-
+            <!-- page content -->
         {% endblock%}
+        </main>
 
+        <footer>
+            &copy; VTM 2020
+        </footer>
     </div>
+
 </body>
 </html>
