@@ -16,11 +16,6 @@ def estimate():
     return render_template('estimate.html')
 
 
-#class Tank:
-   # def __init__(self, tankRadius, tankHeight):
-    #self.tankRadius = tankRadius
-    #self.tankHeight = tankHeight
-
 @app.route('/totalEstimate', methods=['POST'])
 def totalEstimate():
     if request.method == 'POST':
@@ -48,8 +43,8 @@ def totalEstimate():
         # print(totalLaborCost)
 
         totalCost = totalMaterialCost + totalLaborCost
-        totalEstimate = totalCost
-        print(totalEstimate)
+
+        print(totalCost)
 
         return render_template('estimate.html', totalEstimate = totalCost)
 
