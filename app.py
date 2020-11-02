@@ -9,7 +9,7 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html', pageTitle="About VTM")
+    return render_template('about.html')
 
 @app.route('/estimate', methods=['POST'])
 def estimate():
