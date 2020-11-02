@@ -3,11 +3,6 @@ from flask import render_template
 
 app = Flask(__name__)
 
-class Tank:
-    def __init__(self, tankRadius, tankHeight):
-    self.tankRadius = tankRadius
-    self.tankHeight = tankHeight
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -19,6 +14,12 @@ def about():
 @app.route('/estimate')
 def estimate():
     return render_template('estimate.html')
+
+
+class Tank:
+    def __init__(self, tankRadius, tankHeight):
+    self.tankRadius = tankRadius
+    self.tankHeight = tankHeight
 
 @app.route('/totalEstimate', methods=['POST'])
 def totalEstimate():
