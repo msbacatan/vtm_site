@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template, request
 
 app = Flask(__name__)
 
@@ -49,6 +49,7 @@ class Tank:
         self.totalLaborCost = (self.totalArea * self.laborCost)
 
     def calculateTotalCost(self):
+        self.calcTotalArea()
         self.calcLaborCost()
         self.calcMaterialCost()
         self.totalCost = self.calcLaborCost() + self.calcMaterialCost()
@@ -67,7 +68,7 @@ def totalEstimate():
 
         tank.calculateTotalCost()
 
-        totalCost = tank.getTotalEstimate
+        totalCost = tank.getTotalEstimate()
         totalCost = ("The estimated total cost for this tank is ${0:,.2f}").format(totalCost)
 
         print(totalCost)
