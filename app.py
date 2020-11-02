@@ -3,6 +3,11 @@ from flask import render_template
 
 app = Flask(__name__)
 
+class Tank:
+    def __init__(self, tankRadius, tankHeight):
+    self.tankRadius = tankRadius
+    self.tankHeight = tankHeight
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -11,8 +16,12 @@ def index():
 def about():
     return render_template('about.html')
 
-@app.route('/estimate', methods=['POST'])
+@app.route('/estimate')
 def estimate():
+    return render_template('estimate.html')
+
+@app.route('/totalEstimate', methods=['POST'])
+def totalEstimate():
     if request.method == 'POST':
         form = request.form
         radius = float(form['tankRadius'])
@@ -37,8 +46,12 @@ def estimate():
         # print(totalMaterialCost)
         # print(totalLaborCost)
 
-        totalEstimate = totalMaterialCost + totalLaborCost
+        totalCost = totalMaterialCost + totalLaborCost
+        totalEstimate = totalCost
         print(totalEstimate)
+
+        return render_template('estimate.html', totalEstimate = totalCost)
+
     return render_template('estimate.html')
 
 if __name__ == '__main__':
