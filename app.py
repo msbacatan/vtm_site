@@ -39,7 +39,7 @@ def estimate():
 
         totalEstimate = totalMaterialCost + totalLaborCost
         print(totalEstimate)
-    return render_template('estimate.html', pageTitle="VTM Cost Estimator")
+    return render_template('estimate.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
