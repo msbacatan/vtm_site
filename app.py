@@ -16,10 +16,10 @@ def estimate():
     return render_template('estimate.html')
 
 
-class Tank:
-    def __init__(self, tankRadius, tankHeight):
-    self.tankRadius = tankRadius
-    self.tankHeight = tankHeight
+#class Tank:
+   # def __init__(self, tankRadius, tankHeight):
+    #self.tankRadius = tankRadius
+    #self.tankHeight = tankHeight
 
 @app.route('/totalEstimate', methods=['POST'])
 def totalEstimate():
