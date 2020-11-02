@@ -3,6 +3,19 @@ from flask import render_template
 
 app = Flask(__name__)
 
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/estimate')
+def estimate():
+    return render_template('estimate.html')
+
 class Tank:
    def __init__(self, tankRadius, tankHeight):
    self.tankRadius = tankRadius
@@ -42,20 +55,6 @@ class Tank:
 
     def getTotalEstimate(self):
         return self.totalCost
-
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
-@app.route('/estimate')
-def estimate():
-    return render_template('estimate.html')
-
 
 @app.route('/totalEstimate', methods=['POST'])
 def totalEstimate():
