@@ -3,30 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} {% endblock%}</title>
+    <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" typek="text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}">
 </head>
 <body>
-    <div id="container">
-        <div class="header">
-            <h1>Vertical Tank Maintenance</h1>
-            <hr>
-            <div class="topnav">
-                <a class="active" href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="estimate.html">Estimator</a>
-              </div>
-            <hr>
+    <nav>
+        <div class="logo">
+            <h3>Vertical Tank Maintenance</h3>
         </div>
-        <main>
-         {% block body %}
-            <!-- page content -->
-         {% endblock%}
-        </main>
-        <footer>
-            &copy; VTM 2020
-        </footer>
-    </div>
+        <ul class="nav-links"> 
+            <li>
+                <a class="active" href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="about.html">About</a>
+            </li>
+            <li>
+                <a href="estimate.html">Estimate</a>
+            </li>
+        </ul>
+    </nav>
 
+    <main>
+        {% block body %}
+        <!-- page content -->
+        {% endblock %}
+    </main>
+    
+    <footer>
+        &copy; VTM 2020
+    </footer>
+    
 </body>
 </html>
