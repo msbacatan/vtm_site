@@ -29,6 +29,7 @@ nav{
 }
 
 .nav-links ul li{
+    list-style: none;
     background-color: cornflowerblue;
     color: seashell;
     height: 150px;
