@@ -17,9 +17,9 @@ def estimate():
     return render_template('estimate.html')
 
 class Tank:
-    def __init__(self, tankRadius, tankHeight):
-        self.tankRadius = tankRadius
-        self.tankHeight = tankHeight
+    def __init__(self, radius, height):
+        self.tankRadius = radius
+        self.tankHeight = height
         self.piCalc = 3.14
         self.materialCost = 25
         self.laborCost = 15
@@ -64,7 +64,7 @@ def totalEstimate():
         radius = float(form['tankRadius'])
         height = float(form['tankHeight']) 
 
-        tank = Tank(tankRadius, tankHeight)
+        tank = Tank(radius, height)
 
         tank.calculateTotalCost()
 
