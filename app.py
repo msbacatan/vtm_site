@@ -23,8 +23,8 @@ class Tank:
         self.piCalc = 3.14
         self.materialCost = 25
         self.laborCost = 15
-        self.topArea = piCalc * (tankRadius)**2
-        self.sideArea = (piCalc * (tankRadius * tankHeight))
+        self.topArea = piCalc * (self.tankRadius)**2
+        self.sideArea = (piCalc * (self.tankRadius * self.tankHeight))
         self.totalArea = 0
         self.totalMaterialCost = 0
         self.totalLaborCost = 0
