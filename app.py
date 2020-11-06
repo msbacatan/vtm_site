@@ -18,17 +18,17 @@ def estimate():
 
 class Tank:
     def __init__(self, tankRadius, tankHeight):
-    self.tankRadius = tankRadius
-    self.tankHeight = tankHeight
-    self.piCalc = 3.14
-    self.materialCost = 25
-    self.laborCost = 15
-    self.topArea = piCalc * (tankRadius)**2
-    self.sideArea = (piCalc * (tankRadius * tankHeight))
-    self.totalArea = 0
-    self.totalMaterialCost = 0
-    self.totalLaborCost = 0
-    self.totalCost = 0
+        self.tankRadius = tankRadius
+        self.tankHeight = tankHeight
+        self.piCalc = 3.14
+        self.materialCost = 25
+        self.laborCost = 15
+        self.topArea = piCalc * (tankRadius)**2
+        self.sideArea = (piCalc * (tankRadius * tankHeight))
+        self.totalArea = 0
+        self.totalMaterialCost = 0
+        self.totalLaborCost = 0
+        self.totalCost = 0
 
     def totalArea(self):
         return self.totalArea
