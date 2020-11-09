@@ -23,8 +23,8 @@ class Tank:
         self.piCalc = 3.14
         self.materialCost = 25
         self.laborCost = 15
-        self.topArea = piCalc * (self.tankRadius)**2
-        self.sideArea = (piCalc * (self.tankRadius * self.tankHeight))
+        self.topArea = self.piCalc * (self.tankRadius)**2
+        self.sideArea = (self.piCalc * (self.tankRadius * self.tankHeight))
         self.totalArea = 0
         self.totalMaterialCost = 0
         self.totalLaborCost = 0
@@ -47,8 +47,11 @@ class Tank:
 
     def calcLaborCost(self):
         self.totalLaborCost = (self.totalArea * self.laborCost)
+    
+    def totalCost(self):
+        return self.totalCost
 
-    def calculateTotalCost(self):
+    def calcTotalCost(self):
         self.calcTotalArea()
         self.calcLaborCost()
         self.calcMaterialCost()
@@ -66,7 +69,7 @@ def totalEstimate():
 
         tank = Tank(radius, height)
 
-        tank.calculateTotalCost()
+        tank.calcTotalCost()
 
         totalCost = tank.getTotalEstimate()
         totalCost = ("The estimated total cost for this tank is ${0:,.2f}").format(totalCost)
