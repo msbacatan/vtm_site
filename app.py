@@ -29,6 +29,7 @@ class Tank:
         self.totalMaterialCost = 0
         self.totalLaborCost = 0
         self.totalCost = 0
+        self.TotalEstimate = 0
 
     def totalArea(self):
         return self.totalArea
@@ -55,7 +56,7 @@ class Tank:
         self.calcTotalArea()
         self.calcLaborCost()
         self.calcMaterialCost()
-        self.totalCost = self.calcLaborCost() + self.calcMaterialCost()
+        self.totalCost = (self.totalLaborCost + self.totalMaterialCost)
 
     def getTotalEstimate(self):
         return self.totalCost
